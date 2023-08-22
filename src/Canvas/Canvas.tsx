@@ -1,8 +1,8 @@
 import { Canvas } from "@react-three/fiber";
 import { PerspectiveCamera, OrbitControls } from "@react-three/drei/core";
-import { Home } from "../Home";
 import { Suspense } from "react";
 import Loader from "../Home/Loader";
+import Panorama from "../Panorama/Panorama";
 
 import "./Canvas.css";
 
@@ -19,7 +19,7 @@ const AppCanvas = () => {
           enableDamping
         />
         <Suspense fallback={<Loader />}>
-          <Home />
+          <Panorama imageLocation="/assets/360/6-Banting-Drive-Backrooms-08222023_122743.jpg" />
         </Suspense>
       </Canvas>
     </div>
