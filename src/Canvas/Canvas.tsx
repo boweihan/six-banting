@@ -11,7 +11,7 @@ const AppCanvas = () => {
     // create the canvas
     <div className="canvas-container">
       <Canvas>
-        <ambientLight />
+        <ambientLight intensity={3} />
         <PerspectiveCamera />
         <OrbitControls
           maxPolarAngle={Math.PI / 2}
