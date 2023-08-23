@@ -18,17 +18,18 @@ const AppCanvas = () => {
 
   return (
     <div className="canvas-container">
-      <ImagePicker
-        images={images}
-        selectedImageSrc={imageSrc}
-        setImageSrc={setImageSrc}
-      />
+      {!show3DModel && (
+        <ImagePicker
+          images={images}
+          selectedImageSrc={imageSrc}
+          setImageSrc={setImageSrc}
+        />
+      )}
       <Toggle
         toggled={show3DModel}
         onToggle={() => setShow3DModel(!show3DModel)}
       />
       <VRButton />
-
       <Canvas style={{ transform: show3DModel ? "none" : "scaleX(-1)" }}>
         <XR>
           <Controllers />
