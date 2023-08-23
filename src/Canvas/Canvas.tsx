@@ -1,7 +1,8 @@
 import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { PerspectiveCamera, OrbitControls } from "@react-three/drei/core";
+import { PerspectiveCamera } from "@react-three/drei/core";
 import { VRButton, XR, Controllers, Hands } from "@react-three/xr";
+import { OrbitControls } from "../lib/OrbitControls";
 import Loader from "../Home/Loader";
 import { Panorama } from "../Panorama";
 import { ImagePicker } from "../ImagePicker";
@@ -42,6 +43,7 @@ const AppCanvas = () => {
             minPolarAngle={Math.PI / 3} // 30 degrees below horizontal plane
             zoomSpeed={1}
             enableDamping
+            reverseVerticalOrbit
           />
           <Suspense fallback={<Loader showProgress={show3DModel} />}>
             {show3DModel ? (
