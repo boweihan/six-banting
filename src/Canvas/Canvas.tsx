@@ -1,27 +1,38 @@
+import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { PerspectiveCamera, OrbitControls } from "@react-three/drei/core";
-import { Suspense } from "react";
 import Loader from "../Home/Loader";
-import Panorama from "../Panorama/Panorama";
+import { Panorama } from "../Panorama";
+import { ImagePicker } from "../ImagePicker";
+import { images, imagePrefix } from "../constants";
+import { Footer } from "../Footer";
 
 import "./Canvas.css";
 
 const AppCanvas = () => {
+  const [imageSrc, setImageSrc] = useState<string>(images.entrance.src);
+
   return (
-    // create the canvas
     <div className="canvas-container">
-      <Canvas>
+      <ImagePicker
+        images={images}
+        selectedImageSrc={imageSrc}
+        setImageSrc={setImageSrc}
+      />
+      <Canvas style={{ transform: "scaleX(-1)" }}>
         <ambientLight intensity={3} />
         <PerspectiveCamera />
         <OrbitControls
-          maxPolarAngle={Math.PI / 2}
+          maxPolarAngle={(2 * Math.PI) / 3} // 30 degrees above horizontal plane
+          minPolarAngle={Math.PI / 3} // 30 degrees below horizontal plane
           zoomSpeed={0.2}
           enableDamping
         />
         <Suspense fallback={<Loader />}>
-          <Panorama imageLocation="/assets/360/6-Banting-Drive-Backrooms-08222023_122743.jpg" />
+          <Panorama imageLocation={`${imagePrefix}${imageSrc}`} />
         </Suspense>
       </Canvas>
+      <Footer />
     </div>
   );
 };

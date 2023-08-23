@@ -1,0 +1,24 @@
+.image-picker {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 1;
+  padding: 5px;
+  background-color: black;
+}
+
+.image-picker__select {
+  /* hide arrow */
+  /* -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none; */
+
+  padding: 10px;
+  font-size: large;
+  background-color: black;
+  color: white;
+  border: 5px solid white;
+  width: 360px;
+  font-family: "Open Sans", sans-serif;
+}

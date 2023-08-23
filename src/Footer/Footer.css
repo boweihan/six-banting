@@ -1,0 +1,21 @@
+.footer {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  z-index: 1;
+  font-family: "Qwitcher Grypen", cursive;
+  font-size: 2rem;
+}
+
+.footer-desc {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  z-index: 1;
+  font-family: "Qwitcher Grypen", cursive;
+  font-size: 1.5rem;
+}
