@@ -30,6 +30,7 @@ const AppCanvas = () => {
         onToggle={() => setShow3DModel(!show3DModel)}
       />
       <VRButton />
+
       <Canvas style={{ transform: show3DModel ? "none" : "scaleX(-1)" }}>
         <XR>
           <Controllers />
