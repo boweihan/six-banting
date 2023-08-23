@@ -5,7 +5,6 @@
   transform: translate(-50%);
   z-index: 1;
   padding: 5px;
-  background-color: black;
 }
 
 .image-picker__select {
@@ -18,7 +17,7 @@
   font-size: large;
   background-color: black;
   color: white;
-  border: 5px solid white;
+  border: 2px solid white;
   width: 360px;
   font-family: "Open Sans", sans-serif;
 }
