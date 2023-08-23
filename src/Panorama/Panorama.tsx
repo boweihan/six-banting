@@ -2,7 +2,7 @@ import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 const Panorama = ({ imageLocation }: { imageLocation: string }) => {
-  var myTexture = useTexture(imageLocation);
+  const myTexture = useTexture(imageLocation);
 
   return (
     <mesh position={[0, 0, 0]}>
