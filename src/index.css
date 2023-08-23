@@ -13,3 +13,7 @@ body,
 #root {
   background-color: black;
 }
+
+.loader {
+  color: white;
+}
