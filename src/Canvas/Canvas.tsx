@@ -6,6 +6,8 @@ import { Panorama } from "../Panorama";
 import { ImagePicker } from "../ImagePicker";
 import { images, imagePrefix } from "../constants";
 import { Footer } from "../Footer";
+import ReactHowler from "react-howler";
+import music from "../assets/song.mp3";
 
 import "./Canvas.css";
 
@@ -33,6 +35,7 @@ const AppCanvas = () => {
         </Suspense>
       </Canvas>
       <Footer />
+      <ReactHowler src={music} loop={true} volume={0.5} />
     </div>
   );
 };
