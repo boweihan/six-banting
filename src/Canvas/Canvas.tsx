@@ -42,7 +42,6 @@ const AppCanvas = () => {
             minPolarAngle={Math.PI / 3} // 30 degrees below horizontal plane
             zoomSpeed={1}
             enableDamping
-            rotateSpeed={-1}
           />
           <Suspense fallback={<Loader showProgress={show3DModel} />}>
             {show3DModel ? (
