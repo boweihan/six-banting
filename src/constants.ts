@@ -26,6 +26,10 @@ export const images = {
       src: "6-Banting-Drive-Backrooms-08222023_235239.jpg",
       title: "Entrance",
     },
+    basement: {
+      src: "6-Banting-Drive-Backrooms-08232023_102046.jpg",
+      title: "Basement"
+    },
     crawlRoomInner: {
       src: "6-Banting-Drive-Backrooms-08222023_211507.jpg",
       title: "Crawl Room (Inner)",

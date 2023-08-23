@@ -1,18 +1,20 @@
 import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { PerspectiveCamera, OrbitControls } from "@react-three/drei/core";
+import { VRButton, XR, Controllers, Hands } from "@react-three/xr";
 import Loader from "../Home/Loader";
 import { Panorama } from "../Panorama";
 import { ImagePicker } from "../ImagePicker";
+import { Music } from "../Music";
 import { images, imagePrefix } from "../constants";
 import { Footer } from "../Footer";
-import ReactHowler from "react-howler";
-import music from "../assets/song.mp3";
+import { Toggle, Home } from "../Home";
 
 import "./Canvas.css";
 
 const AppCanvas = () => {
   const [imageSrc, setImageSrc] = useState<string>(images.frontYard.src);
+  const [show3DModel, setShow3DModel] = useState<boolean>(false);
 
   return (
     <div className="canvas-container">
@@ -21,21 +23,35 @@ const AppCanvas = () => {
         selectedImageSrc={imageSrc}
         setImageSrc={setImageSrc}
       />
-      <Canvas style={{ transform: "scaleX(-1)" }}>
-        <ambientLight intensity={3} />
-        <PerspectiveCamera />
-        <OrbitControls
-          maxPolarAngle={(2 * Math.PI) / 3} // 30 degrees above horizontal plane
-          minPolarAngle={Math.PI / 3} // 30 degrees below horizontal plane
-          zoomSpeed={0.2}
-          enableDamping
-        />
-        <Suspense fallback={<Loader />}>
-          <Panorama imageLocation={`${imagePrefix}${imageSrc}`} />
-        </Suspense>
+      <Toggle
+        toggled={show3DModel}
+        onToggle={() => setShow3DModel(!show3DModel)}
+      />
+      <VRButton />
+      <Canvas style={{ transform: show3DModel ? "none" : "scaleX(-1)" }}>
+        <XR>
+          <Controllers />
+          <Hands />
+          <ambientLight intensity={3} />
+          <PerspectiveCamera />
+          <OrbitControls
+            maxPolarAngle={(2 * Math.PI) / 3} // 30 degrees above horizontal plane
+            minPolarAngle={Math.PI / 3} // 30 degrees below horizontal plane
+            zoomSpeed={1}
+            enableDamping
+            rotateSpeed={-1}
+          />
+          <Suspense fallback={<Loader showProgress={show3DModel} />}>
+            {show3DModel ? (
+              <Home />
+            ) : (
+              <Panorama imageLocation={`${imagePrefix}${imageSrc}`} />
+            )}
+          </Suspense>
+        </XR>
       </Canvas>
       <Footer />
-      <ReactHowler src={music} loop={true} volume={0.5} />
+      <Music />
     </div>
   );
 };

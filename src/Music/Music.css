@@ -1,0 +1,17 @@
+.music-button {
+  position: absolute;
+  z-index: 1;
+  bottom: 30px;
+  left: 30px;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.music-icon {
+  font-size: 30px;
+  color: white;
+  font-weight: bolder;
+}

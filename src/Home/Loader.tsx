@@ -1,13 +1,15 @@
 import { Html, useProgress } from "@react-three/drei";
 
-const Loader = () => {
-  const { progress } = useProgress();
+type LoaderProps = {
+  showProgress: boolean;
+};
 
-  console.log(progress);
+const Loader = ({ showProgress }: LoaderProps) => {
+  const { progress } = useProgress();
 
   return (
     <Html center className="loader">
-      <h1>...</h1>
+      <h1>{showProgress ? `${progress} loaded` : ""}...</h1>
     </Html>
   );
 };
