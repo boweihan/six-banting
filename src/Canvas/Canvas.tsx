@@ -12,7 +12,7 @@ import music from "../assets/song.mp3";
 import "./Canvas.css";
 
 const AppCanvas = () => {
-  const [imageSrc, setImageSrc] = useState<string>(images.entrance.src);
+  const [imageSrc, setImageSrc] = useState<string>(images.frontYard.src);
 
   return (
     <div className="canvas-container">
