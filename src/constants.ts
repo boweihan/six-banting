@@ -23,7 +23,7 @@ export const images = {
       title: "Garage",
     },
     entrance: {
-      src: "6-Banting-Drive-Backrooms-08222023_211340.jpg",
+      src: "6-Banting-Drive-Backrooms-08222023_235239.jpg",
       title: "Entrance",
     },
     crawlRoomInner: {
