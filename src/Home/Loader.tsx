@@ -9,7 +9,7 @@ const Loader = ({ showProgress }: LoaderProps) => {
 
   return (
     <Html center className="loader">
-      <h1>{showProgress ? `${progress} loaded` : ""}...</h1>
+      <h1>{showProgress ? `${Math.round(progress)}% loaded` : ""}...</h1>
     </Html>
   );
 };
